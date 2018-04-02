@@ -10,7 +10,7 @@ class QALogin
   LOGOUT_BUTTON = "Log Out"
   LOGOUT_NAV_HOVER = "img.avatar.avatar-26.
 photo"
-  CLICK_LOG_IN = "#wp-admin-bar-logout"
+  CLICK_LOG_IN = "Log in"
 
   def get_url
     current_url

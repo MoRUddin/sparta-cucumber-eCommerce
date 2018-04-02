@@ -22,6 +22,9 @@ class QAPurchase
   BILLING_FORM_PHONE = "#wpsc_checkout_form_18"
   SHIPPING_SAME_AS_BILLING_CHECK = "#shippingSameBilling"
   MAKE_PURCHASE_BUTTON = "Purchase"
+  UPDATE_QUANTITY_FIELD = "quantity"
+  UPDATE_BUTTON = "Update"
+  TOTAL_PRICE_CLASS = ".pricedisplay"
 
   def get_url
     current_url
@@ -33,7 +36,7 @@ class QAPurchase
     all(DEFAULT_PRODUCTS_SELECTOR).each do |product|
       if find_product_name(product) == product_name
         click_add_to_cart_button(product)
-        sleep 2
+        sleep 1
       end
     end
   end
@@ -87,6 +90,15 @@ class QAPurchase
   end
   def click_purchase
     click_button(MAKE_PURCHASE_BUTTON)
+  end
+  def update_quantity quantity
+    fill_in(UPDATE_QUANTITY_FIELD,with: quantity)
+  end
+  def click_update
+    click_button(UPDATE_BUTTON)
+  end
+  def find_total
+    find(TOTAL_PRICE_CLASS).text
   end
 
 end

@@ -5,10 +5,10 @@ end
 
 And ("I can login in with correct credentials") do
   @login.click_log_in
+  sleep 1
   @login.fill_email("f2770769@nwytg.com")
   @login.fill_password("wPqMi)5FP*O*r!z2")
   @login.click_login_continue
-  binding.pry
   @login.visit_homepage
 end
 
@@ -32,7 +32,6 @@ And("I enter in details for shipping price") do
   @purchase.select_country_for_shipping("United Kingdom")
   expect(@purchase.find_county).to eq("London")
   expect(@purchase.find_billing_email).to eq("f2770769@nwytg.com")
-  sleep 2
 end
 
 And("I enter in my personal details") do
@@ -56,4 +55,14 @@ end
 
 Then("I am taken to the order confirmation page") do
   expect(@purchase.get_url).to include("http://store.demoqa.com/products-page/transaction-results/?sessionid=")
+end
+
+Given("I add the Magic mouse to the cart") do
+  @purchase.find_default_products("Magic Mouse")
+end
+
+When("I update the quantity of my order to nine") do
+  @purchase.update_quantity(9)
+  @purchase.click_update
+  expect(@purchase.find_total).to eq("$1,350.00")
 end
