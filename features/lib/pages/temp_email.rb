@@ -10,13 +10,16 @@ class Temporary_Email
   MESSAGE_BODY = "p.message"
   VALIDATION_LINK = ".vglnk"
 
+  def get_url
+    current_url
+  end
   def visit_homepage
     visit(HOMEPAGE_URL)
   end
   def visit_url url
     visit(url)
   end
-  def find_validation_link
+  def find_validation_link #waits max 3 minutes for email to appear
     find(VALIDATION_MESSAGE, wait: 180).find(MESSAGE_BODY).find(VALIDATION_LINK)["href"]
   end
 

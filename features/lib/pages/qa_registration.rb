@@ -15,7 +15,9 @@ class QARegistration
   PASSWORD_CONFIRM = "Reset Password"
   LOGIN_LINK = "Log in"
 
-
+  def get_url
+    current_url
+  end
   def visit_homepage
     visit(HOMEPAGE_URL)
   end
