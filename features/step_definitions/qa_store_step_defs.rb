@@ -13,7 +13,6 @@ Given("I can acces the registration page") do
   qa_registration.click_register
 end
 
-
 When("I enter enter my temporary email and username") do
   qa_registration.fill_username(@qa_registration.address)
   qa_registration.fill_email(@qa_registration.address)
@@ -30,6 +29,7 @@ Then("I can go to the activation link to register my account") do
 end
 
 Then("I will be given a changeable secure password") do
+  sleep 2
   @qa_registration.find_password
 end
 
@@ -39,7 +39,6 @@ Then("I can complete my registration by clicking reset password") do
 end
 
 Then("I can fill in my username, password and click login to login") do
-  sleep 1
   qa_login.fill_email(@qa_registration.address)
   qa_login.fill_password(@qa_registration.qa_password)
   qa_login.click_login
