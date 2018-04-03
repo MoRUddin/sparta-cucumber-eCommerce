@@ -10,6 +10,7 @@ class QALogin
   LOGOUT_BUTTON = "Log Out"
   LOGOUT_NAV_HOVER = "img.avatar.avatar-26.photo"
   CLICK_LOG_IN = "Log in"
+  ERROR_MESSAGE = "div#login_error"
 
   def get_url
     current_url
@@ -37,6 +38,9 @@ class QALogin
   end
   def click_logout
     click_link(LOGOUT_BUTTON)
+  end
+  def displayed_error_message
+    find(ERROR_MESSAGE).text
   end
 
 end

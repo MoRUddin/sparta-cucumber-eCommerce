@@ -51,3 +51,16 @@ Feature: eCommerce Registration, Login, and Purchasing routes
       And I make the billing address, same as shipping
       And I click buy
     Then I am taken to the order confirmation page
+
+  Scenario Outline: If I input incorrect details into the login form I will receive the correct error message
+    Given I can access the main home page
+    And I move to the sign in page
+    And I input the necessary details with the username details <username> and the password details <password>
+    Then I receive the corresponding error <error>
+
+    Examples:
+        |      username      | password |                    error                    |
+        |                    |    v     |    ERROR: The username field is empty.    |
+        | f2770769@nwytg.com | password | ERROR: The password you entered for the email address f2770769@nwytg.com is incorrect. Lost your password? |
+        | f2770769@nwytg.com |          | ERROR: The password field is empty. |
+        | j43jk3jvv3kj4j345v | password | ERROR: Invalid username. Lost your password? |
