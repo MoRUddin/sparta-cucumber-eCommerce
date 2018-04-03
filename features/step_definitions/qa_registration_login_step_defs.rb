@@ -58,5 +58,6 @@ And("I can click logout to log out") do
   sleep 1
   @login.hover_over_logout
   @login.click_logout
+  expect(@login.get_url).to eq("http://store.demoqa.com/wp-login.php?loggedout=true")
   sleep 2
 end

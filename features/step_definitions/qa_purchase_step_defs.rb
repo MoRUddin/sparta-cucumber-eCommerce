@@ -9,7 +9,6 @@ And ("I can login in with correct credentials") do
   @login.fill_email("f2770769@nwytg.com")
   @login.fill_password("wPqMi)5FP*O*r!z2")
   @login.click_login_continue
-  binding.pry
   @login.visit_homepage
 end
 
