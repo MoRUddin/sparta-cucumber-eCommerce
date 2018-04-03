@@ -26,7 +26,7 @@ end
 
 And("I get an activation link in my temporary email") do
   @email.visit_homepage
-  @email.validation_link = temp_email.find_validation_link
+  @email.save_link(temp_email.find_validation_link)
 end
 
 Then("I can go to the activation link to register my account") do
@@ -55,6 +55,7 @@ And("I can access the user dashboard") do
 end
 
 And("I can click logout to log out") do
+  sleep 1
   @login.hover_over_logout
   @login.click_logout
   sleep 2

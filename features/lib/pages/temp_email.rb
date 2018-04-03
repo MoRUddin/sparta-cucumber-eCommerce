@@ -20,7 +20,10 @@ class Temporary_Email
     visit(url)
   end
   def find_validation_link #waits max 3 minutes for email to appear
-    find(VALIDATION_MESSAGE, wait: 180).find(MESSAGE_BODY).all(VALIDATION_LINK)["href"]
+    find(VALIDATION_MESSAGE, wait: 180).find(MESSAGE_BODY).find(VALIDATION_LINK)["href"]
+  end
+  def save_link link
+    @validation_link = link
   end
 
 end

@@ -38,3 +38,16 @@ Feature: eCommerce Registration, Login, and Purchasing routes
       And I make the billing address, same as shipping
       And I click buy
     Then I am taken to the order confirmation page
+
+  Scenario: Purchasing using links from the homepage
+    Given I can access the main home page
+      And I can login in with correct credentials
+    When I access buy mouse link
+      And I add the magic mouse to cart
+      And I go to checkout
+      And I click continue
+      And I enter in details for shipping price
+      And I enter in my personal details
+      And I make the billing address, same as shipping
+      And I click buy
+    Then I am taken to the order confirmation page

@@ -25,6 +25,8 @@ class QAPurchase
   UPDATE_QUANTITY_FIELD = "quantity"
   UPDATE_BUTTON = "Update"
   TOTAL_PRICE_CLASS = ".pricedisplay"
+  MAIN_PAGE_BUY_NOW_BUTTON = "a.buynow"
+  ADD_TO_CART_MAIN_PAGE = "div.productcol"
 
   def get_url
     current_url
@@ -99,6 +101,12 @@ class QAPurchase
   end
   def find_total
     find(TOTAL_PRICE_CLASS).text
+  end
+  def main_page_buy_now
+    find(MAIN_PAGE_BUY_NOW_BUTTON).click
+  end
+  def main_page_add_to_cart
+    click_add_to_cart_button(find(ADD_TO_CART_MAIN_PAGE))
   end
 
 end

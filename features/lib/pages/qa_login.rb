@@ -8,8 +8,7 @@ class QALogin
   PASSWORD_FIELD = "user_pass"
   LOGIN_BUTTON = "wp-submit"
   LOGOUT_BUTTON = "Log Out"
-  LOGOUT_NAV_HOVER = "img.avatar.avatar-26.
-photo"
+  LOGOUT_NAV_HOVER = "img.avatar.avatar-26.photo"
   CLICK_LOG_IN = "Log in"
 
   def get_url
